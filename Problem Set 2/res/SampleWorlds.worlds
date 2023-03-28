@@ -1,0 +1,104 @@
+# This file contains a number of sample worlds that you can use to test out
+# your answers to the Executable Logic problem. Feel free to introduce any
+# worlds that you'd like into this file; as long as each one has a unique
+# header, they'll all get picked up by the test driver.
+#
+# You don't need to submit this file. We won't grade anything you include
+# here.
+#
+# As a syntax reminder, you can create named entities by using the Person(),
+# Cat(), or Robot() predicates, as in
+#
+#   Person(Grace Hopper)
+#
+# which creates a person name Grace Hopper, or
+#
+#   Robot(A)
+#
+# which creates a robot named A. You must declare a entity with one of these
+# predicates before you can use them in a Loves expression.
+#
+# You can make one entity love another by using the Loves binary predicate:
+#
+#   Loves(Grace Hopper, A)
+#
+# This makes Grace Hopper love A, but not the other way around.
+#
+# Entities can love themselves:
+#
+#   Loves(A, A)
+#
+# All blank lines and all lines starting with a # mark are treated as comments
+# and ignored.
+
+[All You Need Is Love]
+Person(A)
+Cat(B)
+Robot(C)
+
+Loves(A, A)
+Loves(A, B)
+Loves(A, C)
+Loves(B, A)
+Loves(B, B)
+Loves(B, C)
+Loves(C, A)
+Loves(C, B)
+Loves(C, C)
+
+[That Got Awkward]
+Person(A)
+Person(B)
+Person(C)
+
+
+[All Hail Our New Robot Overlords]
+Person(A)
+Person(B)
+Robot(C)
+Robot(D)
+Loves(A, C)
+Loves(A, D)
+Loves(B, C)
+Loves(B, D)
+
+[Kittens Are Adorable]
+Person(A)
+Robot(B)
+Cat(C)
+
+Loves(A, C)
+Loves(B, C)
+
+[Ah, True Love]
+Person(A)
+Person(B)
+
+Loves(A, B)
+Loves(B, A)
+
+[Self Confidence]
+Person(A)
+Robot(B)
+Cat(C)
+
+Loves(A, A)
+Loves(B, B)
+Loves(C, C)
+
+[Random]
+Cat(2)
+Cat(3)
+Cat(4)
+Cat(5)
+Person(0)
+Person(1)
+Robot(6)
+Loves(0, 1)
+Loves(0, 2)
+Loves(0, 6)
+Loves(1, 6)
+Loves(3, 0)
+Loves(3, 2)
+Loves(4, 2)
+Loves(5, 0)

@@ -1,0 +1,47 @@
+# Enter your answers to "This, But Not That" into this file.
+#
+# You can create named entities by using the Person(), Cat(), or Robot()
+# predicates, as in
+#
+#   Person(Grace Hopper)
+#
+# which creates a person name Grace Hopper, or
+#
+#   Robot(A)
+#
+# which creates a robot named A. You must declare a entity with one of these
+# predicates before you can use them in a Loves expression.
+#
+# You can make one entity love another by using the Loves binary predicate:
+#
+#   Loves(Grace Hopper, A)
+#
+# This makes Grace Hopper love A, but not the other way around.
+#
+# Entities can love themselves:
+#
+#   Loves(A, A)
+#
+# All blank lines and all lines starting with a # mark are treated as comments
+# and ignored.
+
+
+[Part (i)]   # ∀y. ∃x. Loves(x, y), but not ∃x. ∀y. Loves(x, y)
+
+
+[Part (ii)]  # ∀x. (Person(x) ∨ Cat(x)), but not (∀x. Person(x)) ∨ (∀x. Cat(x))
+Person(A)
+Cat(B)
+
+[Part (iii)] # (∃x. Robot(x)) ∧ (∃x. Loves(x, x)), but not ∃x. (Robot(x) ∧ Loves(x, x))
+Robot(A)
+Cat(B)
+Loves(B, B)
+
+[Part (iv)]  # (∀x. Cat(x)) → (∀y. Loves(y, y)), but not ∀x. ∀y. (Cat(x) → Loves(y, y))
+Cat(A)
+Robot(B)
+
+[Part (v)]  # ∃x. (Robot(x) → ∀y. Robot(y)), but not (∀x. Robot(x)) ∨ (∀x. ¬Robot(x))
+Robot(A)
+Cat(B)

@@ -1,0 +1,31 @@
+# Edit this file with your answers to the "Embracing the Braces"
+# problem from Problem Set Seven.
+#
+# Our regular expression parser understands regular expressions in
+# several different formats. For example, the following are all
+# equivalent ways of writing the same regular expression, which
+# has no particular special meaning and instead just serves to show
+# off the parser syntax. :-)
+#
+#     a⁺ ∪ (ab)* ∪ Σa? ∪ εØ ∪ abc⁷
+#     a+ | (ab)* | .a? | _@ | abc^7
+#
+# More specifically, here's the syntax we support:
+#
+# • Any character without a special meaning stands for itself.
+# • Unions can be written using either | or ∪.
+# • ε can be represented as _ or as itself.
+# • Ø can be represented as @ or as itself.
+# • Σ can be represented as . or as itself.
+# • Repeated copies can be specified using superscript numerals
+#   (e.g. R² or R³) or using the ^ operator (e.g. R^2 or R^3).
+#
+# Anything after a hash mark (#) is treated as a comment and is
+# ignored.
+#
+[Part (ii)] # All strings of balanced braces whose nesting depth is at most four
+(({})|
+ ({{(}{)*}})|
+ ({{(}{)*{(}(}{)*{)*}(}{)*}})|
+ ({{(}{)*{(}(}{)*{)*{(}(}(}{)*{)*{)*}(}(}{)*{)*}(}{)*}})
+)*

@@ -1,0 +1,27 @@
+# This is a collection of example sets. This file isn't used by our test driver
+# and exists purely as a reference of how to define different sets and objects.
+
+[Example 01]
+# The empty set. Notice that we have to represent it in this tool as a set with no elements.
+{}
+
+
+[Example 02]
+# A set containing Mirth and Whimsy.
+{ Mirth, Whimsy }
+
+
+[Example 03]
+# We can have objects in addition to sets. Here's the object "Mirth."
+Mirth
+
+
+[Example 04]
+# A set containing mirth.
+{ Mirth }
+
+
+[Example 05]
+# A set containing the set containing mirth.
+{ { Mirth } }
+

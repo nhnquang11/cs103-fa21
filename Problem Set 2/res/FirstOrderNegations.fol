@@ -1,0 +1,53 @@
+# Edit this file to write your answers to the "First-Order Negations" problem.
+#
+# The first-order logic parser bundled with this assignment can understand
+# logic formulas in a bunch of different formats. For example, all of the
+# following are ways for expressing "∀x. (Cat(x) → ∃y. (Robot(y) ∧ ¬Loves(x, y)))":
+#
+#    forall x. (Cat(x) -> exists y. (Robot(y) /\ ~Loves(x, y)))
+#
+#    \forall x. (Cat(x) \to \exists y. (Robot(y) \land \lnot Loves(x, y)))
+#
+#    Ax. (Cat(x) implies Ey. (Robot(y) and not Loves(x, y)))
+#
+#    Ax. (Cat(x) => 
+#       Ey. (Robot(y) && !Loves(x, y))
+#    )
+#
+#    ∀x. (Cat(x) → ∃y. (Robot(y) ∧ ¬Loves(x, y)))
+#
+# You are *encouraged* to introduce linebreaks and whitespace into your
+# answers to make them easier to read, especially for when you need to
+# debug them!
+#
+# You can add comments into any formula you'd like. Any text after a hash
+# mark (#) will be ignored, so formulas like these are fine:
+#
+#       forall x. (Cat(x) ->                      # for any cat...
+#          exists y. (Robot(y) /\ !Loves(x, y))   # ... there's a robot
+#       )                                         #     it doesn't love.
+#
+# To make things easier, we've copied the formulas from the problem
+# statement into this file.
+
+[Part (i)]
+∃p. (Person(p) ∧
+    ∀c. (Cat(c) ∧ Loves(p, c) →
+        ∃r. (Robot(r) ∧ Loves(c, r))
+    )
+)
+
+[Part (ii)]
+(∀x. (Person(x) ↔ ∃r. (Robot(r) ∧ Loves(x, r)))) ∧(∃r. ∃c. (Robot(r) ∧ Cat(c) ∧ ¬Loves(r, c)))
+
+[Part (iii)]
+∃c. (Cat(c) ∧
+    ∀r. (¬Robot(r) ∨
+        ∃x. (¬Loves(c, x) ↔ r = x)
+    )
+)
+
+[Part (iv)]
+∀x. (¬Cat(x) ∨
+    (∃r. (Loves(r, x) ∧ ¬Robot(r)) ∧ ∃p. (Loves(p, x) ∧ ¬Person(p)))
+)

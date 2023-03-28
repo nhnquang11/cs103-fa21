@@ -1,0 +1,76 @@
+# Edit this file to write your answers to the "First-Order Negations" problem.
+#
+# The first-order logic parser bundled with this assignment can understand
+# logic formulas in a bunch of different formats. For example, all of the
+# following are ways for expressing "∀x. (Cat(x) → ∃y. (Robot(y) ∧ ¬Loves(x, y)))":
+#
+#    forall x. (Cat(x) -> exists y. (Robot(y) /\ ~Loves(x, y)))
+#
+#    \forall x. (Cat(x) \to \exists y. (Robot(y) \land \lnot Loves(x, y)))
+#
+#    Ax. (Cat(x) implies Ey. (Robot(y) and not Loves(x, y)))
+#
+#    Ax. (Cat(x) =>
+#       Ey. (Robot(y) && !Loves(x, y))
+#    )
+#
+#    ∀x. (Cat(x) → ∃y. (Robot(y) ∧ ¬Loves(x, y)))
+#
+# You are *encouraged* to introduce linebreaks and whitespace into your
+# answers to make them easif you need to debug
+# them!ier to read, especially for when you need to
+# debug them!
+#
+# You can add comments into any formula you'd like. Any text after a hash
+# mark (#) will be ignored, so formulas like these are fine:
+#
+#       forall x. (Cat(x) ->                      # for any cat...
+#          exists y. (Robot(y) /\ !Loves(x, y))   # ... there's a robot
+#       )                                         #     it doesn't love.
+#
+# To make things easier, we've copied the statements to translate into
+# this file.
+
+[Part (i)]  # "Robots do not love."
+∀x. (Robot(x) → ∀y. ¬Loves(x, y))
+
+[Part (ii)]  # "Each robot loves every cat, but no cat loves any person."
+(∀x. (Robot(x) →
+     ∀y. (Cat(y) → Loves(x, y))
+     )
+)
+∧
+(∀x. (Cat(x) →
+     ∀y. (Person(y) → ¬Loves(x, y))
+     )
+)
+
+[Part (iii)] # "Each cat only loves itself."
+∀x. (Cat(x) → Loves(x, x) ^ ∀y. (x ≠ y → ¬Loves(x, y)))
+
+[Part (iv)] # "if you pick a person, you’ll find that they love a cat if and only if they also love a robot."
+∀x. (Person(x) →
+    (
+        (∃y. (Cat(y) ^ Loves(x, y))) ↔ (∃z. (Robot(z) ^ Loves(x, z)))
+    )
+)
+
+[Part (v)]   # "Each person loves exactly two cats and nothing else."
+∀x. (Person(x) →
+    (∃y. (Cat(y) ^ Loves(x, y) ^
+         ∃z. (Cat(z) ^ y ≠ z ^ Loves(x, z) ^
+                ∀t. (t ≠ y ^ t ≠ z → ¬Loves(x, t))
+             )
+         )
+    )
+)
+
+[Part (vi)]  # "No two robots love exactly the same set of cats."
+∀x. (Robot(x) →
+    (∀y. (Robot(y) ^ y ≠ x →
+         ∃z. (Cat(z) ^
+             (Loves(x, z) ∨ Loves(y, z)) ^
+             (¬Loves(x, z) ∨ ¬Loves(y, z)))
+         )
+    )
+)

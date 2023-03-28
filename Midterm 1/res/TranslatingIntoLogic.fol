@@ -1,0 +1,46 @@
+# Edit this file to write your answers to the "Translating Into Logic" problem.
+#
+# The first-order logic parser bundled with this assignment can understand
+# logic formulas in a bunch of different formats. For example, all of the
+# following are ways for expressing "∀x. (Cat(x) → ∃y. (Robot(y) ∧ ¬Loves(x, y)))":
+#
+#    forall x. (Cat(x) -> exists y. (Robot(y) /\ ~Loves(x, y)))
+#
+#    \forall x. (Cat(x) \to \exists y. (Robot(y) \land \lnot Loves(x, y)))
+#
+#    Ax. (Cat(x) implies Ey. (Robot(y) and not Loves(x, y)))
+#
+#    Ax. (Cat(x) =>
+#       Ey. (Robot(y) && !Loves(x, y))
+#    )
+#
+#    ∀x. (Cat(x) → ∃y. (Robot(y) ∧ ¬Loves(x, y)))
+#
+# You are *encouraged* to introduce linebreaks and whitespace into your
+# answers to make them easier to read, especially for when you need to
+# debug them!
+#
+# You can add comments into any formula you'd like. Any text after a hash
+# mark (#) will be ignored, so formulas like these are fine:
+#
+#       forall x. (Cat(x) ->                      # for any cat...
+#          exists y. (Robot(y) /\ !Loves(x, y))   # ... there's a robot
+#       )                                         #     it doesn't love.
+#
+# To make things easier, we've copied the statements to translate into
+# this file.
+
+[Part (i)] # "There's a cat that loves all people and a person who loves all cats."
+(∃x. (Cat(x) ∧ ∀y. (Person(y) → Loves(x, y))))
+∧
+(∃x. (Person(x) ∧ ∀y. (Cat(y) → Loves(x, y))))
+
+[Part (ii)] # "If there are no cats, then there are no robots either."
+(∀x.¬Cat(x)) → (∀x.¬Robot(x))
+
+[Part (iii)] # "No two people love the same cat."
+∀x. (Person(x) →
+    ∀y. (Person(y) ∧ y ≠ x →
+        ∀z. (Cat(z) ∧ Loves(x, z) → ¬Loves(y, z))
+    )
+)

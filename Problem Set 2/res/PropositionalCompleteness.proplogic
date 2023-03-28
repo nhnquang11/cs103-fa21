@@ -1,0 +1,44 @@
+# Edit this file to list your answers to the Propositional Completeness
+# problem.
+#
+# You can enter your formulas here in any format that our Truth Table Tool
+# (web.stanford.edu/tools/truth-table-tool/) can understand. For example,
+# all of the following are ways of saying "p ∧ q → ¬r":
+#
+#     p ∧ q → ¬r
+#     p and q implies not r
+#     p && q => !r
+#     p /\ q -> ~r
+#     p \land q \to \neg r
+#
+# As a note, variables are case-sensitive, so p and P are not treated as
+# the same variable.
+#
+# You can represent the ⊤ and ⊥ connectives either by using those symbols
+# directly, by writing out true or false, etc.
+#
+# All blank lines are ignored, as is any text after a hash mark (#).
+# Feel free to introduce whatever whitespace you'd like to have in your
+# formulas. That will make things easier to read and edit if you need to
+# read or edit them. :-)
+
+[Part (i)]   # Express ⊥; don't use connectives other than ∧, ∨, ¬, and ⊤
+¬⊤
+
+[Part (ii)]  # Express p → q; don't use connectives other than ∧, ∨, ¬, and ⊤
+¬(p ∧ ¬q)
+
+[Part (iii)] # Express p ↔ q; don't use connectives other than ∧, ∨, ¬, and ⊤
+(¬p ∨ q) ^ (¬q ∨ p)
+
+[Part (iv)]  # Express p ∨ q; don't use connectives other than ∧, ¬, and ⊤
+¬(¬p ^ ¬q)
+
+[Part (v)]   # Express ⊤; don't use connectives other than → and ⊥
+⊥ → ⊥
+
+[Part (vi)]  # Express ¬p; don't use connectives other than → and ⊥
+p → ⊥
+
+[Part (vii)] # Express p ∧ q; don't use connectives other than → and ⊥
+(p → (q → ⊥)) → ⊥

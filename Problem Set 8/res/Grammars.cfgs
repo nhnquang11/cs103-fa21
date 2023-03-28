@@ -1,0 +1,81 @@
+# Edit this file with your context-free grammars from the problem set.
+#
+# Our CFG parser understands regular expressions in several different formats.
+# For example, the following are all equivalent ways of writing the same CFG, which
+# has no particular special meaning and instead just serves to show
+# off the parser syntax. :-)
+#
+# Version 1:
+#
+#     S → aTbb | cS
+#     T → aSbb | ε | c
+#
+# Version 2:
+#
+#     S -> aTbb | cS
+#     T -> aSbb | _ | c
+#
+# Version 3:
+#
+#     X -> aYbb
+#     X -> cS
+#     Y -> aXbb
+#     Y ->
+#     Y -> c
+#
+# Version 4:
+#
+#     S ::= aTbb
+#     S ::= cS
+#     T ::= aSbb |   | c  # Empty production is epsilon
+#
+# More specifically, here's the syntax we support:
+#
+# • Upper-case English letters (A ... Z) represent nonterminals.
+#
+# • An empty production can be written by simply leaving the production
+#   blank or by explicitly writing ε or _. Note that, in particular, if you
+#   add an extra vertical bar at the end of a list of productions, it will
+#   be interpreted as though you mean "or ε."
+#
+# • Multiple productions for the same nonterminal can be written separated
+#   by vertical bars or as their own independent productions.
+#
+# • There are many ways to say "this nonterminal derives this string." you
+#   can use ->, ::=, →, etc.
+#
+# • The first listed nonterminal is treated as the start symbol, regardless
+#   of what letter you use.
+#
+# Anything after a hash mark (#) is treated as a comment and is
+# ignored.
+#
+
+[Q1.i]   # Strings over {a, b, c} containing 'aa' as a substring
+S -> TaaT
+T -> CT | ε
+C -> a | b | c
+
+[Q1.ii]  # Email addresses
+S -> XY@XZ
+X -> aX | a
+Y -> .XY | _
+Z -> .XZ | .X
+
+[Q1.iii] # Non-palindromes
+S -> aTb | bTa | aSa | bSb
+T -> CT | _
+C -> a | b
+
+[Q1.iv]  # Sets
+S -> {L} | n | o | SuS
+L -> M | _
+M -> S | M, S
+
+[Q2.ii]  # Addition
+S -> 1S1 | +X
+X -> 1X1 | =
+
+[Q3.ii]  # \partial_{aaa} L
+S -> Tbbb
+T -> aTb | _

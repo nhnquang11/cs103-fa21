@@ -1,0 +1,6 @@
+RUN_TESTS_MENU_OPTION()
+
+WINDOW_TITLE("CS103: Problem Set Four")
+
+MENU_ORDER("GraphEditorGUI.cpp")
+

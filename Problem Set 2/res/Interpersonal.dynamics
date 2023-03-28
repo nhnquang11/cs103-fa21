@@ -1,0 +1,81 @@
+# Enter your answers to PS2 CP1, "Interpersonal Dynamics," here.
+#
+# If the formula in question is already true, answer by writing the
+# word true without any punctuation. If the formula in question is not
+# already true, then list the minimum number of additional arrows
+# needed to make the formula true one line at a time. Each line should
+# take the form Loves(X, Y), indicating that we need to add that X
+# loves Y.
+#
+# All blank lines are ignored, as is anything after a # mark. For
+# simplicity, we've included the formulas from the problem set after a
+# hash mark.
+
+[Part (i)]      # Loves(p1, p3)
+# This is already true, so our answer is just the word true.
+true
+
+[Part (ii)]     # Loves(p3, p4)
+
+# This is not true. The minimum number of arrows that need to be added
+# in is 1, which is done by making p3 love p4.
+Loves(p3, p4)
+
+[Part (iii)]    # Loves(p1, p2) ∧ Loves(p2, p1)
+
+# This is not true. The minimum number of arrows that need to be added
+# in is 2, which is done by making p1 love p2 and p2 love p1.
+Loves(p1, p2)
+Loves(p2, p1)
+
+# The remaining sections are for you to answer.
+
+[Part (iv)]     # Loves(p1, p2) ∨ Loves(p2, p1)
+Loves(p1, p2)
+
+[Part (v)]      # Loves(p1, p1) → Loves(p5, p5)
+true
+
+[Part (vi)]     # Loves(p1, p2) → Loves(p4, p3)
+true
+
+[Part (vii)]    # Loves(p1, p3) → Loves(p3, p6)
+Loves(p3, p6)
+
+[Part (viii)]   # Loves(p1, p4) → Loves(p4, p5)
+true
+
+[Part (ix)]     # Loves(p1, p4) ↔ Loves(p2, p3)
+true
+
+[Part (x)]      # Loves(p1, p3) ↔ Loves(p5, p5)
+true
+
+[Part (xi)]     # ∀x. ∃y. Loves(x, y)
+Loves(p2, p2)
+Loves(p6, p6)
+
+[Part (xii)]    # ∀x. ∃y. Loves(y, x)
+Loves(p4, p4)
+Loves(p6, p6)
+
+[Part (xiii)]   # ∀x. ∃y. (x ≠ y ∧ Loves(x, y))
+Loves(p2, p3)
+Loves(p5, p6)
+Loves(p6, p5)
+
+[Part (xiv)]    # ∀x. ∃y. (x ≠ y ∧ Loves(y, x))
+Loves(p3, p4)
+Loves(p3, p5)
+Loves(p3, p6)
+
+[Part (xv)]     # ∃x. ∀y. Loves(x, y)
+Loves(p3, p3)
+Loves(p3, p4)
+Loves(p3, p5)
+Loves(p3, p6)
+
+[Part (xvi)]    # ∃x. ∀y. (x ≠ y → Loves(x, y))
+Loves(p3, p4)
+Loves(p3, p5)
+Loves(p3, p6)
